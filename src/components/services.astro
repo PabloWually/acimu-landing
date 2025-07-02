@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon/components"
+
+const services = [
+  {
+    icon: "mdi:office-building",
+    title: "Commercial Architecture",
+    description: "Innovative office buildings, retail spaces, and mixed-use developments that drive business success.",
+  },
+  {
+    icon: "mdi:home",
+    title: "Residential Design",
+    description: "Custom homes and residential complexes that perfectly balance comfort, style, and functionality.",
+  },
+  {
+    icon: "mdi:pine-tree",
+    title: "Sustainable Design",
+    description: "Eco-friendly solutions that minimize environmental impact while maximizing energy efficiency.",
+  },
+  {
+    icon: "mdi:lightbulb",
+    title: "Design Consultation",
+    description: "Expert guidance on design concepts, material selection, and project feasibility.",
+  },
+  {
+    icon: "mdi:ruler",
+    title: "Space Planning",
+    description: "Optimized layouts that maximize functionality and flow for any type of space.",
+  },
+  {
+    icon: "mdi:user-multiple",
+    title: "Project Management",
+    description: "End-to-end project coordination ensuring timely delivery and quality execution.",
+  },
+]
+---
+    <div class="py-20 px-4 bg-muted/30">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6">Our Services</h2>
+          <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+            From initial concept to final construction, we provide comprehensive architectural services tailored to your
+            unique needs.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div id={index.toString()} class="group hover:shadow-lg transition-all duration-300 border-0 bg-background">
+              <div class="pb-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <Icon name={service.icon} class="h-6 w-6 text-primary" />
+                </div>
+                <h3 class="text-xl">{service.title}</h3>
+              </div>
+              <div>
+                <p class="text-muted-foreground leading-relaxed">{service.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
