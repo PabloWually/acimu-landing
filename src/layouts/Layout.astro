@@ -1,42 +1,39 @@
 ---
-import "../styles/global.css";
-import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
 
-export interface Props {
-  title: string;
-  description?: string;
+interface Props {
+	title: string;
+	description: string;
 }
 
-const { title, description = "Award-winning architecture studio specializing in modern, sustainable design solutions." } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- SEO -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    
-    <title>{title}</title>
-    <ClientRouter />
-  </head>
-  <body class="font-sans antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
-    <slot />
-    
-    <script>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/placeholder-social.jpg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="/placeholder-social.jpg" />
+	</head>
+	<body>
+		<slot />
+		<script is:inline>
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
@@ -48,12 +45,11 @@ const { title, description = "Award-winning architecture studio specializing in 
       })();
 
       if (theme === 'light') {
-        document.documentElement.classList.remove('dark');
+        document.documentElement.removeAttribute('data-theme');
       } else {
-        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
       }
-
-      window.localStorage.setItem('theme', theme || "light");
+			window.localStorage.setItem('theme', theme);
     </script>
-  </body>
+	</body>
 </html>

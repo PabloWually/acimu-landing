@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Mail, Phone, MapPin } from 'lucide-astro';
+---
+
+<Layout title="Contact ACIMU" description="Get in touch with us for collaborations, inquiries, or to start your next project.">
+  <Header />
+  <main class="container">
+    <section class="contact-intro">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you. Reach out to us for collaborations, inquiries, or to start your next project.</p>
+    </section>
+
+    <section class="contact-content">
+      <div class="form-container">
+        <h2>Send us a Message</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="info-container">
+        <h2>Contact Information</h2>
+        <div class="info-item">
+          <Mail size={24} />
+          <a href="mailto:contact@acimu.design">contact@acimu.design</a>
+        </div>
+        <div class="info-item">
+          <Phone size={24} />
+          <span>(555) 123-4567</span>
+        </div>
+        <div class="info-item">
+          <MapPin size={24} />
+          <span>123 Design Street, Architect City, 45678</span>
+        </div>
+        <div class="map-placeholder">
+            <img src="https://picsum.photos/800/600?random=24" alt="Map Placeholder" />
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .contact-intro {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+  }
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .contact-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  @media (max-width: 992px) {
+    .contact-content {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Form */
+  .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+  label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: bold;
+  }
+  input, textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-muted);
+    border-radius: var(--border-radius);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+  }
+  button[type="submit"] {
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  button[type="submit"]:hover {
+    background-color: var(--color-accent);
+  }
+
+  /* Info */
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  .info-item svg {
+    color: var(--color-primary);
+  }
+  .map-placeholder img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-lg);
+  }
+</style>

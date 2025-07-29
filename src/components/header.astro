@@ -1,142 +1,139 @@
 ---
-const currentPath = Astro.url.pathname;
-
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/" },
-  { name: "Portfolio", href: "/" },
-  { name: "Blog", href: "/" },
-  { name: "Contact", href: "/" },
-];
+import { Layers, Menu, X } from 'lucide-astro';
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
-<header class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700" id="header">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
-      <a href="/" class="text-2xl font-playfair font-bold text-gray-900 dark:text-white">
-        Arcadia
-      </a>
-
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-8">
-        {navigation.map((item) => (
-          <a
-            href={item.href}
-            class={`text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
-              currentPath === item.href 
-                ? "text-blue-600 dark:text-blue-400" 
-                : "text-gray-600 dark:text-gray-300"
-            }`}
-          >
-            {item.name}
-          </a>
-        ))}
-      </nav>
-
-      <!-- Theme & Language Toggle -->
-      <div class="hidden md:flex items-center space-x-2">
-        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-          <span class="sr-only">Toggle theme</span>
-          <svg class="w-5 h-5 dark:hidden" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
-          </svg>
-          <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-          </svg>
-        </button>
-        
-        <button id="language-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-          <span class="sr-only">Toggle language</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-        <span class="sr-only">Toggle menu</span>
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+<header>
+  <nav class="container">
+    <a href="/" class="logo">
+      <Layers size={32} />
+      <span>ACIMU</span>
+    </a>
+    <div class="nav-items">
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <ThemeToggle />
     </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-700">
-      <nav class="py-4 space-y-2">
-        {navigation.map((item) => (
-          <a
-            href={item.href}
-            class={`block px-4 py-2 text-base font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
-              currentPath === item.href 
-                ? "text-blue-600 dark:text-blue-400" 
-                : "text-gray-600 dark:text-gray-300"
-            }`}
-          >
-            {item.name}
-          </a>
-        ))}
-        <div class="flex items-center gap-2 px-4 pt-4">
-          <button id="mobile-theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-            <svg class="w-5 h-5 dark:hidden" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
-            </svg>
-            <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-            </svg>
-          </button>
-          <button id="mobile-language-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-            </svg>
-          </button>
-        </div>
-      </nav>
-    </div>
-  </div>
+    <button class="mobile-menu-button">
+      <Menu size={32} class="open-icon" />
+      <X size={32} class="close-icon" />
+    </button>
+  </nav>
 </header>
 
-<script>
-  // Theme toggle functionality
-  function toggleTheme() {
-    const html = document.documentElement;
-    const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    html.classList.toggle('dark');
-    localStorage.setItem('theme', newTheme);
+<style>
+  header {
+    border-bottom: 1px solid var(--color-muted);
+    padding: var(--spacing-md) 0;
+    position: sticky;
+    top: 0;
+    background-color: var(--color-background);
+    z-index: 20;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: var(--font-serif);
+    z-index: 20;
+  }
+  .nav-items {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+  .nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    z-index: 20;
+  }
+  .close-icon {
+    display: none;
   }
 
-  // Mobile menu toggle
-  function toggleMobileMenu() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenu?.classList.toggle('hidden');
-  }
-
-  // Language toggle (placeholder functionality)
-  function toggleLanguage() {
-    const currentLang = document.documentElement.lang;
-    const newLang = currentLang === 'en' ? 'es' : currentLang === 'es' ? 'fr' : 'en';
-    document.documentElement.lang = newLang;
-    localStorage.setItem('language', newLang);
-  }
-
-  // Event listeners
-  document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
-  document.getElementById('mobile-theme-toggle')?.addEventListener('click', toggleTheme);
-  document.getElementById('language-toggle')?.addEventListener('click', toggleLanguage);
-  document.getElementById('mobile-language-toggle')?.addEventListener('click', toggleLanguage);
-  document.getElementById('mobile-menu-button')?.addEventListener('click', toggleMobileMenu);
-
-  // Header scroll effect
-  window.addEventListener('scroll', () => {
-    const header = document.getElementById('header');
-    if (window.scrollY > 50) {
-      header?.classList.add('shadow-lg');
-    } else {
-      header?.classList.remove('shadow-lg');
+  @media (max-width: 768px) {
+    header {
+      padding: var(--spacing-sm) 0;
     }
+    .logo {
+      font-size: 1.25rem;
+    }
+    .nav-items {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--color-background);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      padding: 0;
+    }
+    .nav-items.is-open {
+      transform: translateX(0);
+    }
+    .nav-links {
+      flex-direction: column;
+      font-size: 2rem;
+      text-align: center;
+      gap: var(--spacing-lg);
+    }
+    .mobile-menu-button {
+      display: block;
+    }
+    .is-open .open-icon {
+      display: none;
+    }
+    .is-open .close-icon {
+      display: block;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo {
+      font-size: 1.1rem;
+      gap: 6px;
+    }
+    .nav-links {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.querySelector('.mobile-menu-button');
+    const navItems = document.querySelector('.nav-items');
+    const body = document.body;
+
+    menuButton.addEventListener('click', () => {
+      navItems.classList.toggle('is-open');
+      body.classList.toggle('is-open');
+    });
   });
 </script>

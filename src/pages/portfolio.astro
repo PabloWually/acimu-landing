@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Portfolio - ACIMU" description="Explore our portfolio of residential, commercial, and public projects.">
+  <Header />
+  <main class="container">
+    <section class="portfolio-intro">
+      <h1>Our Portfolio</h1>
+      <p>A selection of projects that showcase our commitment to design excellence and innovation.</p>
+      <div class="filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="residential">Residential</button>
+        <button data-filter="commercial">Commercial</button>
+        <button data-filter="public">Public</button>
+      </div>
+    </section>
+
+    <section class="portfolio-grid">
+      <div class="item residential">
+        <img src="https://picsum.photos/800/600?random=11" alt="Project" />
+        <div class="overlay"><h3>Modern Villa</h3></div>
+      </div>
+      <div class="item commercial">
+        <img src="https://picsum.photos/800/600?random=12" alt="Project" />
+        <div class="overlay"><h3>Corporate HQ</h3></div>
+      </div>
+      <div class="item public">
+        <img src="https://picsum.photos/800/600?random=13" alt="Project" />
+        <div class="overlay"><h3>City Museum</h3></div>
+      </div>
+      <div class="item residential">
+        <img src="https://picsum.photos/800/600?random=14" alt="Project" />
+        <div class="overlay"><h3>Lakeside Retreat</h3></div>
+      </div>
+      <div class="item commercial">
+        <img src="https://picsum.photos/800/600?random=15" alt="Project" />
+        <div class="overlay"><h3>Boutique Hotel</h3></div>
+      </div>
+      <div class="item public">
+        <img src="https://picsum.photos/800/600?random=16" alt="Project" />
+        <div class="overlay"><h3>Public Library</h3></div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .portfolio-intro {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+  }
+  h1 {
+    font-size: 3.5rem;
+  }
+  .filters {
+    margin-top: var(--spacing-lg);
+  }
+  .filters button {
+    background: none;
+    border: 1px solid var(--color-muted);
+    color: var(--color-text);
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin: 0 var(--spacing-xs);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .filters button:hover, .filters button.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-md);
+  }
+  .item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+  }
+  .item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .item:hover img {
+    transform: scale(1.1);
+  }
+  .item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+  }
+  .item:hover .overlay {
+    transform: translateY(0);
+  }
+  .item h3 {
+    margin: 0;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filters = document.querySelector('.filters');
+    const grid = document.querySelector('.portfolio-grid');
+    const items = grid.querySelectorAll('.item');
+
+    filters.addEventListener('click', (e) => {
+      if (e.target.tagName !== 'BUTTON') return;
+
+      filters.querySelector('.active').classList.remove('active');
+      e.target.classList.add('active');
+
+      const filter = e.target.dataset.filter;
+
+      items.forEach(item => {
+        if (filter === 'all' || item.classList.contains(filter)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

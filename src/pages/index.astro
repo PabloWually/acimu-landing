@@ -1,24 +1,455 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component frontmatter". It never runs in the browser.
 import Layout from '../layouts/Layout.astro';
-import Header from "../components/header.astro";
-import Footer from '../components/footer.astro';
-import Hero from '../components/hero.astro';
-import FeaturedProjects from '../components/featuredProjects.astro';
-import Services from '../components/services.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Home, Sofa, Trees, ChevronLeft, ChevronRight } from 'lucide-astro';
 
-console.log('This runs in your terminal, not the browser!');
+const slides = [
+  {
+    title: 'Innovative Architecture',
+    subtitle: 'Creating the future of living spaces.',
+    imageUrl: 'https://picsum.photos/1600/900?random=1',
+  },
+  {
+    title: 'Sustainable Design',
+    subtitle: 'Building in harmony with nature.',
+    imageUrl: 'https://picsum.photos/1600/900?random=2',
+  },
+  {
+    title: 'Timeless Aesthetics',
+    subtitle: 'Where form meets function beautifully.',
+    imageUrl: 'https://picsum.photos/1600/900?random=3',
+  },
+];
 ---
-<!-- Below is your "component template." It's just HTML, but with
-    some magic sprinkled in to help you build great templates. -->
-<Layout title="Arcadia Studio - Modern Architecture & Design">
+
+<Layout title="ACIMU - Modern Architectural Design" description="Welcome to ACIMU, where we blend modern aesthetics with functional design to create inspiring spaces.">
   <Header />
   <main>
-    <h1>Hello, World!</h1>
-    <Hero />
-    <FeaturedProjects />
-    <Services />
+    <!-- Hero Section with Slideshow -->
+    <section class="hero">
+      <div class="slideshow-container">
+        <div class="slideshow">
+          {slides.map((slide) => (
+            <div class="slide" style={`background-image: url('${slide.imageUrl}');`}>
+              <div class="overlay"></div>
+              <div class="content">
+                <h1>{slide.title}</h1>
+                <p>{slide.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button class="prev"><ChevronLeft size={48} /></button>
+      <button class="next"><ChevronRight size={48} /></button>
+
+      <div class="dots">
+        {slides.map((_, index) => (
+          <button class="dot" data-index={index}></button>
+        ))}
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="container featured-projects">
+      <h2>Featured Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://picsum.photos/800/600?random=4" alt="Project 1" />
+          <h3>Project Alpha</h3>
+          <p>A residential masterpiece of modernism.</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/800/600?random=5" alt="Project 2" />
+          <h3>Project Beta</h3>
+          <p>A commercial space designed for collaboration.</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/800/600?random=6" alt="Project 3" />
+          <h3>Project Gamma</h3>
+          <p>A public installation blending art and structure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services">
+      <div class="container">
+        <h2>Our Services</h2>
+        <div class="grid">
+          <div class="service-item">
+            <Home size={48} />
+            <h3>Architectural Design</h3>
+            <p>From concept to completion, we design buildings that inspire.</p>
+          </div>
+          <div class="service-item">
+            <Sofa size={48} />
+            <h3>Interior Design</h3>
+            <p>Crafting beautiful and functional interior spaces.</p>
+          </div>
+          <div class="service-item">
+            <Trees size={48} />
+            <h3>Landscape Architecture</h3>
+            <p>Designing outdoor spaces that connect with nature.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Years of Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3>300+</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <h3>42</h3>
+                <p>Awards Won</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Client Satisfaction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="container testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial">
+            <blockquote>"ACIMU transformed our vision into a reality beyond our wildest dreams. Their attention to detail is unmatched."</blockquote>
+            <cite>- Alex Johnson</cite>
+        </div>
+        <div class="testimonial">
+            <blockquote>"The most professional and creative team I have ever worked with. Highly recommended!"</blockquote>
+            <cite>- Samantha Lee</cite>
+        </div>
+    </section>
+
   </main>
   <Footer />
 </Layout>
+
+<style>
+  /* Hero Slideshow */
+  .hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  .slideshow-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .slideshow {
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+  }
+  .slide .content {
+    position: relative;
+    z-index: 2;
+  }
+  .slide h1 {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+  }
+  .slide p {
+    font-size: 1.5rem;
+  }
+
+  /* Slideshow Controls */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+  }
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.6);
+  }
+  .prev {
+    left: var(--spacing-lg);
+  }
+  .next {
+    right: var(--spacing-lg);
+  }
+
+  /* Dots */
+  .dots {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--spacing-sm);
+    z-index: 10;
+  }
+  .dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    border: none;
+    padding: 0;
+  }
+  .dot.active, .dot:hover {
+    background-color: white;
+  }
+
+  /* Sections */
+  .featured-projects, .services, .stats, .testimonials {
+    padding: var(--spacing-xl) 0;
+  }
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  /* Card */
+  .card {
+    border: 1px solid var(--color-muted);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .card h3, .card p {
+    padding: 0 var(--spacing-md);
+  }
+  .card h3 {
+    margin-top: var(--spacing-md);
+  }
+  .card p {
+    padding-bottom: var(--spacing-md);
+  }
+
+  /* Services */
+  .services {
+    background-color: var(--color-muted);
+  }
+  .service-item {
+    text-align: center;
+  }
+  .service-item svg {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+  }
+
+  /* Stats */
+  .stats {
+    background-color: var(--color-primary);
+    color: white;
+  }
+  .stats .container {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+  .stats h3 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  .stats p {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  /* Testimonials */
+  .testimonial {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+  }
+  .testimonial blockquote {
+    font-size: 1.5rem;
+    font-family: var(--font-serif);
+    border-left: 4px solid var(--color-primary);
+    padding-left: var(--spacing-md);
+    margin: 0 0 var(--spacing-sm) 0;
+    font-style: italic;
+  }
+  .testimonial cite {
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .slide h1 {
+      font-size: 2.5rem;
+    }
+    .slide p {
+      font-size: 1.2rem;
+    }
+    .prev, .next {
+      padding: var(--spacing-xs);
+    }
+    .prev {
+      left: var(--spacing-md);
+    }
+    .next {
+      right: var(--spacing-md);
+    }
+    .dots {
+      bottom: var(--spacing-md);
+    }
+    .featured-projects, .services, .stats, .testimonials {
+      padding: var(--spacing-lg) 0;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    .grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+    .stats .container {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    .stats h3 {
+      font-size: 2rem;
+    }
+    .testimonial blockquote {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .slide h1 {
+      font-size: 2rem;
+    }
+    .slide p {
+      font-size: 1rem;
+    }
+    .prev, .next {
+      display: none; /* Ocultar flechas en pantallas muy pequeñas */
+    }
+    h2 {
+      font-size: 1.75rem;
+    }
+    .service-item svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slideshow = document.querySelector('.slideshow');
+    const slides = document.querySelectorAll('.slide');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const dotsContainer = document.querySelector('.dots');
+    const dots = document.querySelectorAll('.dot');
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let slideInterval;
+
+    function goToSlide(index: number) {
+      if (index < 0) {
+        index = totalSlides - 1;
+      } else if (index >= totalSlides) {
+        index = 0;
+      }
+      
+      slideshow.style.transform = `translateX(-${index * 100}%)`;
+      
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+      
+      currentIndex = index;
+    }
+
+    function startSlideShow() {
+      slideInterval = setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, 5000); // Change slide every 5 seconds
+    }
+
+    function resetSlideShow() {
+      clearInterval(slideInterval);
+      startSlideShow();
+    }
+
+    prevButton.addEventListener('click', () => {
+      goToSlide(currentIndex - 1);
+      resetSlideShow();
+    });
+
+    nextButton.addEventListener('click', () => {
+      goToSlide(currentIndex + 1);
+      resetSlideShow();
+    });
+
+    dotsContainer.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target.classList.contains('dot')) {
+        const index = parseInt(target.dataset.index, 10);
+        goToSlide(index);
+        resetSlideShow();
+      }
+    });
+
+    // Initialize the first slide and start the automatic slideshow
+    goToSlide(0);
+    startSlideShow();
+  });
+</script>

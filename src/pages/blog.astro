@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Blog - ACIMU" description="Thoughts, articles, and news from the world of architecture and design.">
+  <Header />
+  <main class="container">
+    <section class="blog-intro">
+      <h1>From the Blog</h1>
+      <p>Thoughts, articles, and news from the world of architecture and design.</p>
+    </section>
+
+    <section class="featured-post">
+        <div class="card">
+            <img src="https://picsum.photos/1200/600?random=17" alt="Featured Post" />
+            <div class="content">
+                <span>Featured</span>
+                <h2>The Future of Sustainable Architecture</h2>
+                <p>Exploring the materials and methods that will define the next generation of green buildings...</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-grid">
+      <div class="post-card">
+        <img src="https://picsum.photos/800/600?random=18" alt="Blog Post" />
+        <h3>The Rise of Minimalism</h3>
+        <p>How less is becoming more in modern homes.</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="post-card">
+        <img src="https://picsum.photos/800/600?random=19" alt="Blog Post" />
+        <h3>Biophilic Design</h3>
+        <p>Connecting architecture with nature.</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="post-card">
+        <img src="https://picsum.photos/800/600?random=20" alt="Blog Post" />
+        <h3>The Role of Light</h3>
+        <p>How natural light shapes a space.</p>
+        <a href="#">Read More</a>
+      </div>
+       <div class="post-card">
+        <img src="https://picsum.photos/800/600?random=21" alt="Blog Post" />
+        <h3>Smart Homes</h3>
+        <p>Integrating technology seamlessly.</p>
+        <a href="#">Read More</a>
+      </div>
+       <div class="post-card">
+        <img src="https://picsum.photos/800/600?random=22" alt="Blog Post" />
+        <h3>Urban Planning</h3>
+        <p>Designing cities for people.</p>
+        <a href="#">Read More</a>
+      </div>
+       <div class="post-card">
+        <img src="https://picsum.photos/800/600?random=23" alt="Blog Post" />
+        <h3>Materiality in Design</h3>
+        <p>The importance of texture and finish.</p>
+        <a href="#">Read More</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .blog-intro {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+  }
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .featured-post {
+    margin-bottom: var(--spacing-xl);
+  }
+  .featured-post .card {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    color: white;
+  }
+  .featured-post img {
+    width: 100%;
+    display: block;
+  }
+  .featured-post .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-xl);
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  }
+  .featured-post span {
+    background-color: var(--color-primary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+  }
+  .featured-post h2 {
+    font-size: 2.5rem;
+    margin: var(--spacing-md) 0;
+  }
+  .featured-post a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+  .post-card {
+    border: 1px solid var(--color-muted);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+  .post-card img {
+    width: 100%;
+  }
+  .post-card h3, .post-card p, .post-card a {
+    padding: 0 var(--spacing-md);
+  }
+   .post-card h3 {
+    margin-top: var(--spacing-md);
+  }
+  .post-card a {
+    display: inline-block;
+    margin-bottom: var(--spacing-md);
+    font-weight: bold;
+  }
+</style>
