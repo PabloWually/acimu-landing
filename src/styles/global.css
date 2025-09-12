@@ -5,11 +5,11 @@
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Playfair Display', serif;
 
-  --color-text: #111827;
-  --color-background: #ffffff;
-  --color-primary: #3b82f6;
-  --color-accent: #60a5fa;
-  --color-muted: #f3f4f6;
+  --color-text: #12100f;
+  --color-background: #f2f1f1;
+  --color-primary: #4d4229;
+  --color-accent: #a08d61;
+  --color-muted: #767354;
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;

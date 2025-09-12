@@ -6,18 +6,18 @@ import { Home, Sofa, Trees, ChevronLeft, ChevronRight } from 'lucide-astro';
 
 const slides = [
   {
-    title: 'Innovative Architecture',
-    subtitle: 'Creating the future of living spaces.',
+    title: 'Espacios que conectan y perduran',
+    subtitle: 'Arquitectos Cinco mas Uno',
     imageUrl: 'https://picsum.photos/1600/900?random=1',
   },
   {
-    title: 'Sustainable Design',
-    subtitle: 'Building in harmony with nature.',
+    title: 'Diseño sustentable',
+    subtitle: 'Construyendo en armonia con la naturaleza',
     imageUrl: 'https://picsum.photos/1600/900?random=2',
   },
   {
-    title: 'Timeless Aesthetics',
-    subtitle: 'Where form meets function beautifully.',
+    title: 'Estética atemporal',
+    subtitle: 'Donde la forma y la función se fusionan a la perfección.',
     imageUrl: 'https://picsum.photos/1600/900?random=3',
   },
 ];
@@ -77,22 +77,22 @@ const slides = [
     <!-- Services Overview -->
     <section class="services">
       <div class="container">
-        <h2>Our Services</h2>
+        <h2>Nuestros Servicios</h2>
         <div class="grid">
           <div class="service-item">
             <Home size={48} />
-            <h3>Architectural Design</h3>
-            <p>From concept to completion, we design buildings that inspire.</p>
+            <h3>Diseño Arquitectónico</h3>
+            <p>Desde el concepto hasta la completación, diseñamos edificios que inspiran.</p>
           </div>
           <div class="service-item">
             <Sofa size={48} />
-            <h3>Interior Design</h3>
-            <p>Crafting beautiful and functional interior spaces.</p>
+            <h3>Diseño Interior</h3>
+            <p>Transformamos espacios funcionales en obras de arte.</p>
           </div>
           <div class="service-item">
             <Trees size={48} />
-            <h3>Landscape Architecture</h3>
-            <p>Designing outdoor spaces that connect with nature.</p>
+            <h3>Arquitectura de paisaje</h3>
+            <p>Diseñamos espacios outdoor que conectan con la naturaleza.</p>
           </div>
         </div>
       </div>
@@ -102,20 +102,20 @@ const slides = [
     <section class="stats">
         <div class="container">
             <div class="stat-item">
-                <h3>15+</h3>
-                <p>Years of Experience</p>
+                <h3>3+</h3>
+                <p>Años de experiencia</p>
             </div>
             <div class="stat-item">
-                <h3>300+</h3>
-                <p>Projects Completed</p>
+                <h3>10+</h3>
+                <p>Proyectos completados</p>
             </div>
             <div class="stat-item">
                 <h3>42</h3>
-                <p>Awards Won</p>
+                <p>Premios ganados</p>
             </div>
             <div class="stat-item">
                 <h3>100%</h3>
-                <p>Client Satisfaction</p>
+                <p>satisfacción del cliente</p>
             </div>
         </div>
     </section>
@@ -421,7 +421,7 @@ const slides = [
     function startSlideShow() {
       slideInterval = setInterval(() => {
         goToSlide(currentIndex + 1);
-      }, 5000); // Change slide every 5 seconds
+      }, 10000); // Change slide every 5 seconds
     }
 
     function resetSlideShow() {

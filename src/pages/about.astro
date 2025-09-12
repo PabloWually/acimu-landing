@@ -8,48 +8,73 @@ import Footer from '@/components/Footer.astro';
   <Header />
   <main class="container">
     <section class="about-intro">
-      <h1>About Us</h1>
-      <p>We are a collective of architects, designers, and dreamers passionate about creating spaces that are not only beautiful but also deeply functional and sustainable.</p>
+      <h1>Acerca de nosotros</h1>
+      <p>En ARQUITECTOS CINCO+UNO buscamos plasmar las ideas de nuestros clientes en espacios confortables. Somos un equipo de seis profesionales enfocados en crear soluciones eficientes e innovadoras que se ajusten a los requerimientos de cada persona. En cada proyecto buscamos fusionar la estética, técnica y funcionalidad, trabajamos de la mano con cada usuario a fin de mejorar su calidad de vida y habitabilidad.</p>
     </section>
 
     <section class="mission-vision">
       <div class="item">
-        <h2>Our Mission</h2>
-        <p>To design and build spaces that enhance the human experience, push the boundaries of innovation, and respect the environment.</p>
+        <h2>Misión</h2>
+        <p>
+          Construir el bienestar de quienes confían en nosotros
+          aportando soluciones arquitectónicas innovadoras y
+          sistemas estructurales eficientes.
+        </p>
       </div>
       <div class="item">
-        <h2>Our Vision</h2>
-        <p>To be a global leader in architectural design, recognized for our commitment to creativity, sustainability, and client satisfaction.</p>
+        <h2>Visión</h2>
+        <p>
+          Posicionarnos como referentes en la arquitectura
+          para el bienestar, extendiendo nuestros servicios a
+          cada persona que sueña en construir su futuro.
+        </p>
       </div>
+    </section>
+
+    <section class="about-team">
+      <h2>Nuestro Equipo</h2>
+     <img src="/Equipo.webp" alt="Equipo ACIMU">
     </section>
 
     <section class="team">
-      <h2>Our Team</h2>
+      
       <div class="grid">
         <div class="team-member">
-          <img src="https://picsum.photos/400/400?random=7" alt="Team Member 1" />
-          <h3>Jane Doe</h3>
-          <p>Lead Architect</p>
+          <!-- <img src="https://picsum.photos/400/400?random=10" alt="Team Member 4" /> -->
+          <h3>Esteban Caiza</h3>
+          <p>Coordinador</p>
         </div>
         <div class="team-member">
-          <img src="https://picsum.photos/400/400?random=8" alt="Team Member 2" />
-          <h3>John Smith</h3>
-          <p>Creative Director</p>
+          <!-- <img src="https://picsum.photos/400/400?random=9" alt="Team Member 3" /> -->
+          <h3>Lizeth Narvaez</h3>
+          <p>Coordinadora</p>
         </div>
         <div class="team-member">
-          <img src="https://picsum.photos/400/400?random=9" alt="Team Member 3" />
-          <h3>Emily White</h3>
-          <p>Project Manager</p>
+          <!-- <img src="https://picsum.photos/400/400?random=8" alt="Team Member 2" /> -->
+          <h3>Dayana Chiguano</h3>
+          <p>Coordinadora</p>
         </div>
-         <div class="team-member">
-          <img src="https://picsum.photos/400/400?random=10" alt="Team Member 4" />
-          <h3>Michael Brown</h3>
-          <p>Lead Interior Designer</p>
+        <div class="team-member">
+          <!-- <img src="https://picsum.photos/400/400?random=7" alt="Team Member 1" /> -->
+          <h3>Byron Peralta</h3>
+          <p>Director General</p>
+        </div>
+        <div class="team-member">
+        </div>
+        <div class="team-member">
+          <!-- <img src="https://picsum.photos/400/400?random=10" alt="Team Member 4" /> -->
+          <h3>Tatiana Paucar</h3>
+          <p>Coordinadora</p>
+        </div>
+        <div class="team-member">
+          <!-- <img src="https://picsum.photos/400/400?random=10" alt="Team Member 4" /> -->
+          <h3>Bryan Silva</h3>
+          <p>Coordinador</p>
         </div>
       </div>
     </section>
 
-    <section class="awards">
+    <!-- <section class="awards">
         <h2>Awards & Recognitions</h2>
         <ul>
             <li><span>2023</span> Global Design Award for Sustainable Architecture</li>
@@ -57,13 +82,13 @@ import Footer from '@/components/Footer.astro';
             <li><span>2021</span> "Golden Pillar" for Innovative Commercial Design</li>
             <li><span>2020</span> "Green Build" Award for Eco-Friendly Construction</li>
         </ul>
-    </section>
+    </section> -->
   </main>
   <Footer />
 </Layout>
 
 <style>
-  .about-intro, .mission-vision, .team, .awards {
+  .about-intro, .mission-vision, .team, .awards, .about-team {
     padding: var(--spacing-xl) 0;
   }
   h1, h2 {
@@ -81,6 +106,13 @@ import Footer from '@/components/Footer.astro';
     margin: 0 auto;
     text-align: center;
     font-size: 1.2rem;
+  }
+  .about-team img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--border-radius);
   }
 
   .mission-vision {
