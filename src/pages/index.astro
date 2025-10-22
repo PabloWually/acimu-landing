@@ -1,14 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Header from '@/components/Header.astro';
-import Footer from '@/components/Footer.astro';
 import { Home, Sofa, Trees, ChevronLeft, ChevronRight } from 'lucide-astro';
 
 const slides = [
   {
     title: 'Espacios que conectan y perduran',
     subtitle: 'Arquitectos Cinco mas Uno',
-    imageUrl: 'https://picsum.photos/1600/900?random=1',
+    imageUrl: 'https://d37oqcizs0sma9.cloudfront.net/Equipo.webp',
   },
   {
     title: 'Diseño sustentable',
@@ -24,8 +22,6 @@ const slides = [
 ---
 
 <Layout title="ACIMU - Modern Architectural Design" description="Welcome to ACIMU, where we blend modern aesthetics with functional design to create inspiring spaces.">
-  <Header />
-  <main>
     <!-- Hero Section with Slideshow -->
     <section class="hero">
       <div class="slideshow-container">
@@ -50,7 +46,7 @@ const slides = [
           <button class="dot" data-index={index}></button>
         ))}
       </div>
-    </section>
+    </section>https://d37oqcizs0sma9.cloudfront.net
 
     <!-- Featured Projects -->
     <section class="container featured-projects">
@@ -133,8 +129,6 @@ const slides = [
         </div>
     </section>
 
-  </main>
-  <Footer />
 </Layout>
 
 <style>

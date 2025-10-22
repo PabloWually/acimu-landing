@@ -7,9 +7,11 @@
 
   --color-text: #12100f;
   --color-background: #f2f1f1;
+  --color-background-rgb: 242, 241, 241;
   --color-primary: #4d4229;
   --color-accent: #a08d61;
   --color-muted: #767354;
+  --color-muted-rgb: 118, 115, 84;
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -23,9 +25,11 @@
 [data-theme='dark'] {
   --color-text: #f3f4f6;
   --color-background: #111827;
+  --color-background-rgb: 17, 24, 39;
   --color-primary: #60a5fa;
   --color-accent: #3b82f6;
   --color-muted: #1f2937;
+  --color-muted-rgb: 31, 41, 55;
 }
 
 body {
