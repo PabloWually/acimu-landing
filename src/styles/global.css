@@ -1,9 +1,23 @@
 /* src/styles/global.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
+@font-face {
+    font-family: "complex";
+    src: url("https://d37oqcizs0sma9.cloudfront.net/fonts/complex.woff2");
+    font-display: swap;
+}
+@font-face {
+    font-family: "century-gothic";
+    src: url("https://d37oqcizs0sma9.cloudfront.net/fonts/centurygothic.woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 :root {
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Playfair Display', serif;
+  --font-complex: 'complex', serif;
+  --century-gothic: 'century-gothic', sans-serif;
 
   --color-text: #12100f;
   --color-background: #f2f1f1;
@@ -24,12 +38,12 @@
 
 [data-theme='dark'] {
   --color-text: #f3f4f6;
-  --color-background: #111827;
-  --color-background-rgb: 17, 24, 39;
-  --color-primary: #60a5fa;
-  --color-accent: #3b82f6;
-  --color-muted: #1f2937;
-  --color-muted-rgb: 31, 41, 55;
+  --color-background: #000;
+  --color-background-rgb: 242, 241, 241;
+  --color-primary: #4d4229;
+  --color-accent: #a08d61;
+  --color-muted: #767354;
+  --color-muted-rgb: 118, 115, 84;
 }
 
 body {
@@ -46,6 +60,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+p {
+  font-family: var(--century-gothic);
+}
+
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -57,7 +75,7 @@ a:hover {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
 }

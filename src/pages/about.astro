@@ -3,10 +3,14 @@ import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout title="About ACIMU" description="Learn about our mission, vision, and the talented team behind our award-winning designs.">
-  <div>
+  <div class="about-page container">
     <section class="about-intro">
-      <h1>Acerca de nosotros</h1>
+      <!-- <h1>Acerca de nosotros</h1> -->
       <p>En ARQUITECTOS CINCO+UNO buscamos plasmar las ideas de nuestros clientes en espacios confortables. Somos un equipo de seis profesionales enfocados en crear soluciones eficientes e innovadoras que se ajusten a los requerimientos de cada persona. En cada proyecto buscamos fusionar la estética, técnica y funcionalidad, trabajamos de la mano con cada usuario a fin de mejorar su calidad de vida y habitabilidad.</p>
+    </section>
+
+    <section class="about-team">
+     <img src="https://d37oqcizs0sma9.cloudfront.net/equipo-about.png" alt="Equipo ACIMU">
     </section>
 
     <section class="mission-vision">
@@ -28,41 +32,37 @@ import Layout from '@/layouts/Layout.astro';
       </div>
     </section>
 
-    <section class="about-team">
-      <h2>Nuestro Equipo</h2>
-     <img src="https://d37oqcizs0sma9.cloudfront.net/Equipo.webp" alt="Equipo ACIMU">
-    </section>
 
     <section class="team">
-      
+      <h2>Nuestro Equipo</h2>
       <div class="grid">
         <div class="team-member">
-          <!-- <img src="https://picsum.photos/400/400?random=10" alt="Team Member 4" /> -->
+          <img src="https://picsum.photos/400/400?random=10" alt="Team Member 4" />
           <h3>Esteban Caiza</h3>
           <p>Coordinador</p>
         </div>
         <div class="team-member">
-          <!-- <img src="https://picsum.photos/400/400?random=9" alt="Team Member 3" /> -->
+          <img src="https://picsum.photos/400/400?random=9" alt="Team Member 3" />
           <h3>Lizeth Narvaez</h3>
           <p>Coordinadora</p>
         </div>
         <div class="team-member">
-          <!-- <img src="https://picsum.photos/400/400?random=8" alt="Team Member 2" /> -->
+          <img src="https://d37oqcizs0sma9.cloudfront.net/dayana.webp" alt="Team Member 2" />
           <h3>Dayana Chiguano</h3>
           <p>Coordinadora</p>
         </div>
         <div class="team-member">
-          <!-- <img src="https://picsum.photos/400/400?random=7" alt="Team Member 1" /> -->
+          <img src="https://picsum.photos/400/400?random=7" alt="Team Member 1" />
           <h3>Byron Peralta</h3>
           <p>Director General</p>
         </div>
         <div class="team-member">
-          <!-- <img src="https://picsum.photos/400/400?random=10" alt="Team Member 4" /> -->
+          <img src="https://picsum.photos/400/400?random=1" alt="Team Member 4" />
           <h3>Tatiana Paucar</h3>
           <p>Coordinadora</p>
         </div>
         <div class="team-member">
-          <!-- <img src="https://picsum.photos/400/400?random=10" alt="Team Member 4" /> -->
+          <img src="https://picsum.photos/400/400?random="2 alt="Team Member 4" />
           <h3>Bryan Silva</h3>
           <p>Coordinador</p>
         </div>
@@ -82,8 +82,18 @@ import Layout from '@/layouts/Layout.astro';
 </Layout>
 
 <style>
-  .about-intro, .mission-vision, .team, .awards, .about-team {
+  .about-page {
     padding: var(--spacing-xl) 0;
+  }
+  .team, .awards, .about-team {
+    padding: var(--spacing-xl) 0;
+  }
+  .about-intro {
+    height: 35vh;
+    display: flex;
+    padding-top: var(--spacing-xl);
+    align-items: flex-end;
+    justify-content: flex-end;
   }
   h1, h2 {
     text-align: center;
@@ -96,9 +106,8 @@ import Layout from '@/layouts/Layout.astro';
     font-size: 2.5rem;
   }
   .about-intro p {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+    max-width: 700px;
+    text-align: justify;
     font-size: 1.2rem;
   }
   .about-team img {
@@ -115,7 +124,6 @@ import Layout from '@/layouts/Layout.astro';
     justify-content: center;
   }
   .mission-vision .item {
-    flex: 1;
     max-width: 400px;
     text-align: center;
   }
@@ -132,7 +140,6 @@ import Layout from '@/layouts/Layout.astro';
     width: 100%;
     max-width: 250px;
     height: auto;
-    border-radius: 50%;
     margin-bottom: var(--spacing-md);
   }
   .team-member h3 {
@@ -153,5 +160,38 @@ import Layout from '@/layouts/Layout.astro';
     font-weight: bold;
     color: var(--color-primary);
     margin-right: var(--spacing-md);
+  }
+
+  @media screen and (max-width: 769px) {
+    .about-intro {
+      margin-top: var(--spacing-xl);
+      padding: var(--spacing-xl) 0;
+      height: auto;
+      align-items: center;
+      text-align: center;
+    }
+
+    .about-team {
+      padding: var(--spacing-lg) 0;
+    }
+
+    .about-intro p {
+      padding: 0 var(--spacing-md);
+      text-align: justify;
+      font-size: 1rem;
+    }
+    .mission-vision {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1920px) {
+    .about-intro {
+      height: 40vh;
+    }
   }
 </style>
