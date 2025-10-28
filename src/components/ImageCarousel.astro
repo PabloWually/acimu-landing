@@ -1,0 +1,270 @@
+---
+// src/components/ImageCarousel.astro
+interface Props {
+  images: { url: string; caption: string }[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="gemini-carousel-container">
+  <div class="gemini-carousel-track">
+    {images.map((image, index) => (
+      <div class="gemini-carousel-slide" data-index={index}>
+        <img src={image.url} alt={image.caption} />
+      </div>
+    ))}
+  </div>
+  <button class="gemini-carousel-button prev">&lt;</button>
+  <button class="gemini-carousel-button next">&gt;</button>
+</div>
+
+<div id="gemini-lightbox-modal" class="gemini-modal">
+  <span class="gemini-close-button">&times;</span>
+  <div class="gemini-modal-content">
+    <img id="gemini-lightbox-image" src="" alt="">
+    <p id="gemini-lightbox-caption"></p>
+  </div>
+  <button class="gemini-modal-nav prev">&lt;</button>
+  <button class="gemini-modal-nav next">&gt;</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.gemini-carousel-container');
+  if (!container) return;
+
+  const slides = container.querySelectorAll('.gemini-carousel-slide');
+  const nextButton = container.querySelector('.gemini-carousel-button.next');
+  const prevButton = container.querySelector('.gemini-carousel-button.prev');
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === index ? 'block' : 'none';
+    });
+  }
+
+  if (slides.length > 0) {
+      showSlide(0);
+  }
+
+  prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  // Lightbox Modal Logic
+  const modal = document.getElementById('gemini-lightbox-modal');
+  const lightboxImage = document.getElementById('gemini-lightbox-image');
+  const lightboxCaption = document.getElementById('gemini-lightbox-caption');
+  const closeButton = modal.querySelector('.gemini-close-button');
+  const modalNext = modal.querySelector('.gemini-modal-nav.next');
+  const modalPrev = modal.querySelector('.gemini-modal-nav.prev');
+  const imagesForModal = Array.from(container.querySelectorAll('.gemini-carousel-slide img'));
+  let currentImageIndex = 0;
+
+  const openModal = (index) => {
+    currentImageIndex = index;
+    updateModalContent();
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  const closeModal = () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  const updateModalContent = () => {
+    if (imagesForModal[currentImageIndex]) {
+        lightboxImage.src = imagesForModal[currentImageIndex].src;
+        lightboxImage.alt = imagesForModal[currentImageIndex].alt;
+        lightboxCaption.textContent = imagesForModal[currentImageIndex].alt;
+    }
+  }
+
+  const showNextImage = () => {
+    currentImageIndex = (currentImageIndex + 1) % imagesForModal.length;
+    updateModalContent();
+  }
+
+  const showPrevImage = () => {
+    currentImageIndex = (currentImageIndex - 1 + imagesForModal.length) % imagesForModal.length;
+    updateModalContent();
+  }
+
+  slides.forEach((slide, index) => {
+    slide.addEventListener('click', () => {
+      openModal(index);
+    });
+  });
+
+  closeButton.addEventListener('click', closeModal);
+  modalNext.addEventListener('click', showNextImage);
+  modalPrev.addEventListener('click', showPrevImage);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (modal.style.display === 'flex') {
+      if (e.key === 'ArrowRight') showNextImage();
+      if (e.key === 'ArrowLeft') showPrevImage();
+      if (e.key === 'Escape') closeModal();
+    }
+  });
+});
+</script>
+
+<style>
+  .gemini-carousel-container {
+    position: relative;
+    width: 100%;
+    margin: 2rem auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .gemini-carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+  }
+
+  .gemini-carousel-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gemini-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .gemini-carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: background-color 0.2s ease;
+  }
+
+  .gemini-carousel-button:hover {
+      background: rgba(0,0,0,0.7);
+  }
+
+  .gemini-carousel-button.prev {
+    left: 15px;
+  }
+
+  .gemini-carousel-button.next {
+    right: 15px;
+  }
+
+  /* Modal Styles */
+  .gemini-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.92);
+    align-items: center;
+    justify-content: center;
+    animation: gemini-fadeIn 0.3s;
+  }
+
+  .gemini-close-button {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .gemini-close-button:hover {
+      color: #ccc;
+  }
+
+  .gemini-modal-content {
+    text-align: center;
+  }
+
+  #gemini-lightbox-image {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 4px;
+  }
+
+  #gemini-lightbox-caption {
+    color: #ccc;
+    margin-top: 15px;
+    font-size: 1.1rem;
+  }
+
+  .gemini-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(30,30,30,0.5);
+    color: white;
+    border: 1px solid #555;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 28px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+  }
+
+  .gemini-modal-nav:hover {
+      background: rgba(0,0,0,0.7);
+  }
+
+  .gemini-modal-nav.prev {
+    left: 25px;
+  }
+
+  .gemini-modal-nav.next {
+    right: 25px;
+  }
+
+  @keyframes gemini-fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+  }
+</style>
