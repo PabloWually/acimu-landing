@@ -6,110 +6,82 @@ const projects = [
     location: 'Quito, Ecuador',
     startDate: '2025-01-15',
     type: 'Residential',
-    imageUrl: 'https://d37oqcizs0sma9.cloudfront.net/acimu/home.webp',
+    imageUrl: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/home.webp',
     images: [
       {
-        url: 'https://d37oqcizs0sma9.cloudfront.net/acimu/home.webp',
-        caption: 'Vista frontal de la Residencia Loya',
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/home.webp',
+        caption: 'Render principal de la residencia',
       },
       {
-        url: 'https://picsum.photos/1200/800?random=2',
-        caption: 'Fachada del edificio corporativo',
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/1-render-front.webp',
+        caption: 'Render frontal de la residencia',
       },
       {
-        url: 'https://picsum.photos/1200/800?random=3',
-        caption: 'Fachada del edificio corporativo',
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/1-render-back.webp',
+        caption: 'Render render posterior de la residencia',
       },
       {
-        url: 'https://picsum.photos/1200/800?random=4',
-        caption: 'Fachada del edificio corporativo',
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/1-render-lateral.webp',
+        caption: 'Render lateral de la residencia',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/1-render-inside.webp',
+        caption: 'Render interior de la residencia',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/1-description.webp',
+        caption: 'Descripcion general del proyecto',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/2-concept.webp',
+        caption: 'Conceptualización del diseño arquitectónico (Area, Volumen)',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/3-concept.webp',
+        caption: 'Conceptualización del diseño arquitectónico (Dezplazamiento, Definición)',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/4-concept.webp',
+        caption: 'Conceptualización del diseño arquitectónico (Volumenes en planta alta y planta baja)',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/5-implantation.webp',
+        caption: 'Implantación del proyecto en el terreno',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/6-floors.webp',
+        caption: 'Plantas arquitectónicas del proyecto',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/7-facade-front.webp',
+        caption: 'Elevación frontal del proyecto',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/8-facade-side.webp',
+        caption: 'Elevación lateral izquierda del proyecto',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/9-facade-side.webp',
+        caption: 'Elevación lateral derecha del proyecto',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/10-section-cross.webp',
+        caption: 'Corte transversal del proyecto',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/11-section-longitudinal.webp',
+        caption: 'Corte longitudinal del proyecto',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/12-construction-detail.webp',
+        caption: 'Detalle constructivo del proyecto (General, Losa colaborante)',
+      },
+      {
+        url: 'https://d37oqcizs0sma9.cloudfront.net/portfolio/loya-residence/13-construction-detail.webp',
+        caption: 'Detalle constructivo del proyecto (Columna-Viga, Anclaje-columna)',
       },
     ],
     url: '/portfolio/loyaresidence',
-  },
-  {
-    slug: 'casaenlomas',
-    title: 'Corporate HQ',
-    description: 'El edificio corporativo se diseñó para maximizar la eficiencia energética y proporcionar un entorno de trabajo cómodo para los empleados. Con amplias áreas de oficina, salas de reuniones equipadas con tecnología avanzada y espacios comunes que fomentan la colaboración, este edificio refleja la identidad de la empresa a través de su arquitectura moderna y sostenible.',
-    location: 'San Francisco, USA',
-    startDate: '2024-09-10',
-    type: 'Commercial',
-    imageUrl: 'https://picsum.photos/800/600?random=12',
-    images: [
-      {
-        url: 'https://picsum.photos/1200/800?random=12',
-        caption: 'Fachada del edificio corporativo',
-      },
-      {
-        url: 'https://picsum.photos/1200/800?random=13',
-        caption: 'Área de oficinas abiertas',
-      },
-    ],
-    url: '/portfolio/casaenlomas',
-  },
-  {
-    slug: 'citymuseum',
-    title: 'City Museum',
-    description: 'El museo de la ciudad es un espacio cultural diseñado para albergar exposiciones permanentes y temporales que celebran la historia y el arte local. Con una fachada icónica y espacios interiores versátiles, el museo ofrece a los visitantes una experiencia educativa e inspiradora, integrando tecnología interactiva y áreas de descanso para mejorar la visita.',
-    location: 'New York, USA',
-    startDate: '2023-11-05',
-    type: 'Cultural',
-    imageUrl: 'https://picsum.photos/800/600?random=2',
-    images: [
-      {
-        url: 'https://picsum.photos/1200/800?random=2',
-        caption: 'Entrada principal del City Museum',
-      },
-    ],
-    url: '/portfolio/citymuseum',
-  },
-  {
-    slug: 'lakesideretreat',
-    title: 'Lakeside Retreat',
-    description: 'Este retiro junto al lago es una escapada perfecta para aquellos que buscan tranquilidad y conexión con la naturaleza. La casa cuenta con grandes ventanales que ofrecen vistas panorámicas del lago, una terraza al aire libre para disfrutar del paisaje y un diseño interior que combina comodidad y estilo rústico moderno.',
-    location: 'Lake Tahoe, USA',
-    startDate: '2024-06-20',
-    type: 'Residential',
-    imageUrl: 'https://picsum.photos/800/600?random=14',
-    images: [
-      {
-        url: 'https://picsum.photos/1200/800?random=2',
-        caption: 'Entrada principal del City Museum',
-      },
-    ],
-    url: '/portfolio/lakesideretreat',
-  },
-  {
-    slug: 'boutiquehotel',
-    title: 'Boutique Hotel',
-    description: 'El hotel boutique ofrece una experiencia de alojamiento única con un diseño elegante y personalizado. Cada habitación está decorada con atención al detalle, y el hotel cuenta con instalaciones como un restaurante gourmet, un spa relajante y áreas comunes acogedoras que invitan a los huéspedes a socializar y relajarse.',
-    location: 'Barcelona, Spain',
-    startDate: '2024-08-15',
-    type: 'Hospitality',
-    imageUrl: 'https://picsum.photos/800/600?random=2',
-    images: [
-      {
-        url: 'https://picsum.photos/1200/800?random=2',
-        caption: 'Entrada principal del City Museum',
-      },
-    ],
-    url: '/portfolio/boutiquehotel',
-  },
-  {
-    slug: 'publiclibrary',
-    title: 'Public Library',
-    description: 'La biblioteca pública es un centro comunitario diseñado para fomentar la lectura y el aprendizaje. Con una amplia colección de libros, áreas de estudio silenciosas y espacios para eventos comunitarios, la biblioteca sirve como un recurso vital para la educación y la cultura local, ofreciendo un ambiente acogedor para todas las edades.',
-    location: 'Toronto, Canada',
-    startDate: '2025-03-10',
-    type: 'Cultural',
-    imageUrl: 'https://picsum.photos/800/600?random=6',
-    images: [
-      {
-        url: 'https://picsum.photos/1200/800?random=2',
-        caption: 'Entrada principal del City Museum',
-      },
-    ],
-    url: '/portfolio/publiclibrary',
   },
 ];
 
