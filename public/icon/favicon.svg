@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><style>
+    #light-icon {
+      display: inline;
+    }
+    #dark-icon {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #light-icon {
+        display: none;
+      }
+      #dark-icon {
+        display: inline;
+      }
+    }
+  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1225)"><rect width="1000" height="1000" fill="#ffffff"></rect><g transform="matrix(0.3280224929709466,0,0,0.3280224929709466,150,150)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="2134" height="2134"><svg viewBox="0 0 2134 2134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <g id="Capa-1" serif:id="Capa 1" transform="matrix(4.166667,0,0,4.166667,0,0)">
+        <g transform="matrix(1,0,0,1,67.4432,116.9068)">
+            <path d="M0,296.862L-59.901,296.862L207.064,0L250.838,0L250.838,57.64L215.13,57.64L133.393,148.53L250.838,148.43L250.838,193.421L93.024,193.42L0,296.862Z" style="fill-rule:nonzero;stroke:black;stroke-width:1px;"></path>
+        </g>
+        <g transform="matrix(-1,0,0,1,331.8431,114.0275)">
+            <rect x="-11.403" y="0" width="11.403" height="300.547"></rect>
+        </g>
+        <g transform="matrix(1,0,0,1,473.9825,163.0052)">
+            <path d="M0,204.666L0,147.322L31.103,147.322L31.102,250.764L-116.345,250.764L-116.345,-46.098L31.103,-46.098L31.103,11.542L-1.155,11.542L-1.155,0.198L-85.242,0.198L-85.242,204.666L2.304,204.666" style="fill-rule:nonzero;stroke:black;stroke-width:1px;"></path>
+        </g>
+    </g>
+</svg></svg></g></g><defs><clipPath id="SvgjsClipPath1225"><rect width="1000" height="1000" x="0" y="0" rx="350" ry="350"></rect></clipPath></defs></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g><g transform="matrix(0.46860356138706655,0,0,0.46860356138706655,0,0)" style="filter: invert(100%)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="2134" height="2134"><svg viewBox="0 0 2134 2134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <g id="Capa-1" serif:id="Capa 1" transform="matrix(4.166667,0,0,4.166667,0,0)">
+        <g transform="matrix(1,0,0,1,67.4432,116.9068)">
+            <path d="M0,296.862L-59.901,296.862L207.064,0L250.838,0L250.838,57.64L215.13,57.64L133.393,148.53L250.838,148.43L250.838,193.421L93.024,193.42L0,296.862Z" style="fill-rule:nonzero;stroke:black;stroke-width:1px;"></path>
+        </g>
+        <g transform="matrix(-1,0,0,1,331.8431,114.0275)">
+            <rect x="-11.403" y="0" width="11.403" height="300.547"></rect>
+        </g>
+        <g transform="matrix(1,0,0,1,473.9825,163.0052)">
+            <path d="M0,204.666L0,147.322L31.103,147.322L31.102,250.764L-116.345,250.764L-116.345,-46.098L31.103,-46.098L31.103,11.542L-1.155,11.542L-1.155,0.198L-85.242,0.198L-85.242,204.666L2.304,204.666" style="fill-rule:nonzero;stroke:black;stroke-width:1px;"></path>
+        </g>
+    </g>
+</svg></svg></g></g></svg></g></svg>
