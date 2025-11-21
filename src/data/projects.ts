@@ -3,7 +3,7 @@ import { CDN_URL } from '@/config';
 const projects = [
   {
     slug: 'loyaresidence',
-    title: 'Residencia Loya',
+    title: 'RESIDENCIA LOYA',
     description: 'Para el desarrollo del proyecto se consideró principalmente las necesidad del cliente en el ámbito topográfico, ambiental, visual, funcional y de accesibilidad. La vivienda proyecta de dos pisos, alberga dos mini departamentos con los siguientes espacios: sala - comedor, cocina, dos dormitorios, un baño y una zona de lavado, la accesibilidad a cada departamento está dado por unas gradas de conexión externas. A su vez se consideró al exterior tres espacios independientes destinados a parqueaderos, y en el costado lateral derecho una proyección de camino hacia los terrenos colindantes.',
     location: 'Quito, Ecuador',
     startDate: '2025-01-15',

@@ -13,9 +13,11 @@ const { title, description, imageUrl, url } = Astro.props;
   <div class="description">
     <h3>{title}</h3>
     <p>{description}</p>
-    <button class="redirect" onclick={`window.location.href = '${url}'`}>Ver Proyecto</button>
+    <button class="redirect" onclick={`window.location.href = '${url}'`}
+      >Ver Proyecto</button
+    >
   </div>
-  <div class="img-cotainer"><img src={imageUrl} alt={title}></div>
+  <div class="img-cotainer"><img src={imageUrl} alt={title} /></div>
 </div>
 
 <style>
@@ -33,6 +35,17 @@ const { title, description, imageUrl, url } = Astro.props;
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  .description h3 {
+    font-size: 2rem;
+    margin: 0 0 var(--spacing-md) 0;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .description p {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
   }
   .img-cotainer {
     width: 50%;

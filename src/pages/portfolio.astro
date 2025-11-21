@@ -1,26 +1,31 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import ProjectCard from '@/components/projectCard.astro';
-import projects from '@/data/projects.js';
+import Layout from "@/layouts/Layout.astro";
+import ProjectCard from "@/components/projectCard.astro";
+import projects from "@/data/projects.js";
 ---
 
-<Layout title="Portfolio - ACIMU" description="Explore our portfolio of residential, commercial, and public projects.">
+<Layout
+  title="Portfolio - ACIMU"
+  description="Explore our portfolio of residential, commercial, and public projects."
+>
   <main class="container">
     <section class="portfolio-intro">
       <h1>Portafolio</h1>
     </section>
 
     <section class="portfolio-container">
-      {projects.map((project) => (
-        <div class="item">
-          <ProjectCard 
-            title={project.title} 
-            description={project.description} 
-            imageUrl={project.imageUrl} 
-            url={project.url} 
-          />
-        </div>
-      ))}
+      {
+        projects.map((project) => (
+          <div class="item">
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              imageUrl={project.imageUrl}
+              url={project.url}
+            />
+          </div>
+        ))
+      }
     </section>
   </main>
 </Layout>
@@ -39,10 +44,8 @@ import projects from '@/data/projects.js';
   }
   .item {
     height: 70vh;
-    border: 1px solid var(--color-primary);
     position: sticky;
     top: 10vh;
-    border-radius: var(--border-radius);
     overflow: hidden;
     margin-bottom: 10vh;
   }
@@ -52,8 +55,8 @@ import projects from '@/data/projects.js';
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const items = document.querySelectorAll('.item');
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".item");
     if (items.length < 2) return;
 
     const onScroll = () => {
@@ -71,18 +74,19 @@ import projects from '@/data/projects.js';
         const endScaling = tenVh;
 
         if (nextItemTop < startScaling && nextItemTop > endScaling) {
-          const progress = (startScaling - nextItemTop) / (startScaling - endScaling);
+          const progress =
+            (startScaling - nextItemTop) / (startScaling - endScaling);
           const scale = 1 - progress * 0.2;
           item.style.transform = `scale(${Math.max(0.8, scale)})`;
         } else if (nextItemTop <= endScaling) {
-          item.style.transform = 'scale(0.8)';
+          item.style.transform = "scale(0.8)";
         } else {
-          item.style.transform = 'scale(1)';
+          item.style.transform = "scale(1)";
         }
       });
     };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   });
 </script>

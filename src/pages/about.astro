@@ -1,64 +1,91 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import { CDN_URL } from '@/config';
+import Layout from "@/layouts/Layout.astro";
+import { CDN_URL } from "@/config";
 ---
 
-<Layout title="About ACIMU" description="Learn about our mission, vision, and the talented team behind our award-winning designs.">
+<Layout
+  title="About ACIMU"
+  description="Learn about our mission, vision, and the talented team behind our award-winning designs."
+>
   <div class="about-page container">
     <section class="about-intro">
       <!-- <h1>Acerca de nosotros</h1> -->
-      <p>En ARQUITECTOS CINCO+UNO buscamos plasmar las ideas de nuestros clientes en espacios confortables. Somos un equipo de seis profesionales enfocados en crear soluciones eficientes e innovadoras que se ajusten a los requerimientos de cada persona. En cada proyecto buscamos fusionar la estética, técnica y funcionalidad, trabajamos de la mano con cada usuario a fin de mejorar su calidad de vida y habitabilidad.</p>
+      <p>
+        En ARQUITECTOS CINCO+UNO buscamos plasmar las ideas de nuestros clientes
+        en espacios confortables. Somos un equipo de seis profesionales
+        enfocados en crear soluciones eficientes e innovadoras que se ajusten a
+        los requerimientos de cada persona. En cada proyecto buscamos fusionar
+        la estética, técnica y funcionalidad, trabajamos de la mano con cada
+        usuario a fin de mejorar su calidad de vida y habitabilidad.
+      </p>
     </section>
 
     <section class="about-team">
-     <img src={`${CDN_URL}/equipo-about.png`} alt="Equipo ACIMU">
+      <img src={`${CDN_URL}/equipo/equipo-about.webp`} alt="Equipo ACIMU" />
     </section>
 
     <section class="mission-vision">
       <div class="item">
         <h2>Misión</h2>
         <p>
-          Construir el bienestar de quienes confían en nosotros
-          aportando soluciones arquitectónicas innovadoras y
-          sistemas estructurales eficientes.
+          Construir el bienestar de quienes confían en nosotros aportando
+          soluciones arquitectónicas innovadoras y sistemas estructurales
+          eficientes.
         </p>
       </div>
       <div class="item">
         <h2>Visión</h2>
         <p>
-          Posicionarnos como referentes en la arquitectura
-          para el bienestar, extendiendo nuestros servicios a
-          cada persona que sueña en construir su futuro.
+          Posicionarnos como referentes en la arquitectura para el bienestar,
+          extendiendo nuestros servicios a cada persona que sueña en construir
+          su futuro.
         </p>
       </div>
     </section>
-
 
     <section class="team">
       <h2>Nuestro Equipo</h2>
       <div class="grid">
         <div class="team-member">
-          <img src={`${CDN_URL}/equipo/esteban_caiza.webp`} alt="Team Member - Esteban Caiza" />
+          <img
+            src={`${CDN_URL}/equipo/esteban_caiza.webp`}
+            alt="Team Member - Esteban Caiza"
+          />
           <h3>Esteban Caiza</h3>
         </div>
         <div class="team-member">
-          <img src={`${CDN_URL}/equipo/lizeth_narvaez.webp`} alt="Team Member - Lizeth Narvaez" />
+          <img
+            src={`${CDN_URL}/equipo/lizeth_narvaez.webp`}
+            alt="Team Member - Lizeth Narvaez"
+          />
           <h3>Lizeth Narvaez</h3>
         </div>
         <div class="team-member">
-          <img src={`${CDN_URL}/equipo/dayana_chiguano.webp`} alt="Team Member - Dayana Chiguano" />
+          <img
+            src={`${CDN_URL}/equipo/dayana_chiguano.webp`}
+            alt="Team Member - Dayana Chiguano"
+          />
           <h3>Dayana Chiguano</h3>
         </div>
         <div class="team-member">
-          <img src={`${CDN_URL}/equipo/byron_peralta.webp`} alt="Team Member - Byron Peralta" />
+          <img
+            src={`${CDN_URL}/equipo/byron_peralta.webp`}
+            alt="Team Member - Byron Peralta"
+          />
           <h3>Byron Peralta</h3>
         </div>
         <div class="team-member">
-          <img src={`${CDN_URL}/equipo/tatiana_paucar.webp`} alt="Team Member - Tatiana Paucar" />
+          <img
+            src={`${CDN_URL}/equipo/tatiana_paucar.webp`}
+            alt="Team Member - Tatiana Paucar"
+          />
           <h3>Tatiana Paucar</h3>
         </div>
         <div class="team-member">
-          <img src={`${CDN_URL}/equipo/bryan_silva.webp`} alt="Team Member - Bryan Silva" />
+          <img
+            src={`${CDN_URL}/equipo/bryan_silva.webp`}
+            alt="Team Member - Bryan Silva"
+          />
           <h3>Bryan Silva</h3>
         </div>
       </div>
@@ -80,7 +107,9 @@ import { CDN_URL } from '@/config';
   .about-page {
     padding: var(--spacing-xl) 0;
   }
-  .team, .awards, .about-team {
+  .team,
+  .awards,
+  .about-team {
     padding: var(--spacing-xl) 0;
   }
   .about-intro {
@@ -90,7 +119,8 @@ import { CDN_URL } from '@/config';
     align-items: flex-end;
     justify-content: flex-end;
   }
-  h1, h2 {
+  h1,
+  h2 {
     text-align: center;
     margin-bottom: var(--spacing-lg);
   }
