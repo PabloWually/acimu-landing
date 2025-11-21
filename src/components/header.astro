@@ -1,6 +1,7 @@
 ---
 import { Layers, Menu, X } from 'lucide-astro';
 import ThemeToggle from './ThemeToggle.astro';
+import { CDN_URL } from '@/config';
 ---
 
 <header>
@@ -24,7 +25,7 @@ import ThemeToggle from './ThemeToggle.astro';
     <X size={32} />
   </button>
   <div class="menu-image">
-    <img src="https://d37oqcizs0sma9.cloudfront.net/menu.png" alt="Equipo Acimu" />
+    <img src={`${CDN_URL}/menu.png`} alt="Equipo Acimu" />
   </div>
   <div class="menu-items">
     <ul class="nav-links">

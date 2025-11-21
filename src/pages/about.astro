@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { CDN_URL } from '@/config';
 ---
 
 <Layout title="About ACIMU" description="Learn about our mission, vision, and the talented team behind our award-winning designs.">
@@ -10,7 +11,7 @@ import Layout from '@/layouts/Layout.astro';
     </section>
 
     <section class="about-team">
-     <img src="https://d37oqcizs0sma9.cloudfront.net/equipo-about.png" alt="Equipo ACIMU">
+     <img src={`${CDN_URL}/equipo-about.png`} alt="Equipo ACIMU">
     </section>
 
     <section class="mission-vision">
@@ -37,27 +38,27 @@ import Layout from '@/layouts/Layout.astro';
       <h2>Nuestro Equipo</h2>
       <div class="grid">
         <div class="team-member">
-          <img src="https://d37oqcizs0sma9.cloudfront.net/equipo/esteban_caiza.webp" alt="Team Member - Esteban Caiza" />
+          <img src={`${CDN_URL}/equipo/esteban_caiza.webp`} alt="Team Member - Esteban Caiza" />
           <h3>Esteban Caiza</h3>
         </div>
         <div class="team-member">
-          <img src="https://d37oqcizs0sma9.cloudfront.net/equipo/lizeth_narvaez.webp" alt="Team Member - Lizeth Narvaez" />
+          <img src={`${CDN_URL}/equipo/lizeth_narvaez.webp`} alt="Team Member - Lizeth Narvaez" />
           <h3>Lizeth Narvaez</h3>
         </div>
         <div class="team-member">
-          <img src="https://d37oqcizs0sma9.cloudfront.net/equipo/dayana_chiguano.webp" alt="Team Member - Dayana Chiguano" />
+          <img src={`${CDN_URL}/equipo/dayana_chiguano.webp`} alt="Team Member - Dayana Chiguano" />
           <h3>Dayana Chiguano</h3>
         </div>
         <div class="team-member">
-          <img src="https://d37oqcizs0sma9.cloudfront.net/equipo/byron_peralta.webp" alt="Team Member - Byron Peralta" />
+          <img src={`${CDN_URL}/equipo/byron_peralta.webp`} alt="Team Member - Byron Peralta" />
           <h3>Byron Peralta</h3>
         </div>
         <div class="team-member">
-          <img src="https://d37oqcizs0sma9.cloudfront.net/equipo/tatiana_paucar.webp" alt="Team Member - Tatiana Paucar" />
+          <img src={`${CDN_URL}/equipo/tatiana_paucar.webp`} alt="Team Member - Tatiana Paucar" />
           <h3>Tatiana Paucar</h3>
         </div>
         <div class="team-member">
-          <img src="https://d37oqcizs0sma9.cloudfront.net/equipo/bryan_silva.webp" alt="Team Member - Bryan Silva" />
+          <img src={`${CDN_URL}/equipo/bryan_silva.webp`} alt="Team Member - Bryan Silva" />
           <h3>Bryan Silva</h3>
         </div>
       </div>

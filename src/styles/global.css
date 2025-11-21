@@ -1,18 +1,7 @@
 /* src/styles/global.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
-@font-face {
-    font-family: "complex";
-    src: url("https://d37oqcizs0sma9.cloudfront.net/fonts/complex.woff2");
-    font-display: swap;
-}
-@font-face {
-    font-family: "century-gothic";
-    src: url("https://d37oqcizs0sma9.cloudfront.net/fonts/centurygothic.woff2");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+
 :root {
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Playfair Display', serif;

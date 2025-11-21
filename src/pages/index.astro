@@ -1,12 +1,13 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { CDN_URL } from '@/config';
 import { Home, Sofa, Trees, ChevronLeft, ChevronRight } from 'lucide-astro';
 
 const slides = [
   {
     title: '',
     subtitle: '',
-    imageUrl: 'https://d37oqcizs0sma9.cloudfront.net/equipo.webp',
+    imageUrl: `${CDN_URL}/equipo.webp`,
   },
 ];
 ---
