@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import ImageCarousel from "@/components/ImageCarousel.astro";
+import InfiniteCarousel from "@/components/InfiniteCarousel.astro";
 import projects from "@/data/projects";
 
 export async function getStaticPaths() {
@@ -24,11 +24,12 @@ const formattedDate = `${capitalizedMonth}, ${year}`;
   <div class="container">
     <div class="title">
       <h1>{title}</h1>
-      <h2>{location}</h2>
     </div>
     <article class="project-detail">
       <div class="hero-image">
-        <ImageCarousel images={images} />
+        <InfiniteCarousel images={images} direction="left" />
+        <InfiniteCarousel images={images} direction="right" />
+        <h4>{location}</h4>
       </div>
       <div class="info">
         <h1>Descripcion General</h1>
@@ -46,7 +47,7 @@ const formattedDate = `${capitalizedMonth}, ${year}`;
   }
   .title h1 {
     color: var(--color-primary);
-    font-family: var(--century-gothic);
+    font-family: var(--font-complex);
     font-size: 2rem;
     text-transform: uppercase;
     line-height: 1;
@@ -58,6 +59,13 @@ const formattedDate = `${capitalizedMonth}, ${year}`;
     height: auto;
     border-radius: 8px;
     margin-bottom: 2rem;
+  }
+
+  .project-detail .hero-image h4 {
+    text-align: right;
+    margin-top: 1rem;
+    font-weight: normal;
+    margin: 0;
   }
 
   .project-detail .info {

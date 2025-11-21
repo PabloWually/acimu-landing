@@ -1,51 +1,55 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import { CDN_URL } from '@/config';
-import { Home, Sofa, Trees, ChevronLeft, ChevronRight } from 'lucide-astro';
+import Layout from "@/layouts/Layout.astro";
+import { CDN_URL } from "@/config";
+import { Home, Sofa, Trees, ChevronLeft, ChevronRight } from "lucide-astro";
 
 const slides = [
   {
-    title: '',
-    subtitle: '',
+    title: "",
+    subtitle: "",
     imageUrl: `${CDN_URL}/equipo.webp`,
   },
 ];
 ---
 
 <Layout title="ACIMU" description="Espacios que conectan y perduran">
-    <!-- Hero Section with Slideshow -->
-    <section class="hero">
-      <div class="slideshow-container">
-        <div class="slideshow">
-          {slides.map((slide) => (
-            <div class="slide" style={`background-image: url('${slide.imageUrl}');`}>
-              <div class="overlay"></div>
+  <!-- Hero Section with Slideshow -->
+  <section class="hero">
+    <div class="slideshow-container">
+      <div class="slideshow">
+        {
+          slides.map((slide) => (
+            <div
+              class="slide"
+              style={`background-image: url('${slide.imageUrl}');`}
+            >
+              <div class="overlay" />
               <div class="content">
                 <h1>{slide.title}</h1>
                 <p>{slide.subtitle}</p>
               </div>
             </div>
-          ))}
-        </div>
+          ))
+        }
       </div>
+    </div>
 
-      <!-- <button class="prev"><ChevronLeft size={48} /></button> -->
-      <!-- <button class="next"><ChevronRight size={48} /></button> -->
+    <!-- <button class="prev"><ChevronLeft size={48} /></button> -->
+    <!-- <button class="next"><ChevronRight size={48} /></button> -->
 
-      <!-- <div class="dots"> -->
-        <!-- {slides.map((_, index) => ( -->
-          <!-- <button class="dot" data-index={index}></button> -->
-        <!-- ))} -->
-      <!-- </div> -->
-    </section>
+    <!-- <div class="dots"> -->
+    <!-- {slides.map((_, index) => ( -->
+    <!-- <button class="dot" data-index={index}></button> -->
+    <!-- ))} -->
+    <!-- </div> -->
+  </section>
 
-    <!-- Client Testimonials -->
-    <section class="container testimonials">
-        <div class="testimonial">
+  <!-- Client Testimonials -->
+  <section class="container testimonials">
+    <div class="testimonial">
       <blockquote>¡Espacios que conectan y perduran!</blockquote>
-        </div>
-    </section>
-
+    </div>
+  </section>
 </Layout>
 
 <style>
@@ -63,10 +67,11 @@ const slides = [
   .slideshow {
     height: 100%;
     display: flex;
+    justify-content: center;
     transition: transform 0.5s ease-in-out;
   }
   .slide {
-    min-width: 100%;
+    min-width: 80%;
     height: 100%;
     background-size: cover;
     background-position: top;
@@ -84,7 +89,7 @@ const slides = [
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
   }
   .slide .content {
     position: relative;
@@ -99,12 +104,13 @@ const slides = [
   }
 
   /* Slideshow Controls */
-  .prev, .next {
+  .prev,
+  .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     color: white;
     border: none;
     padding: var(--spacing-sm);
@@ -112,8 +118,9 @@ const slides = [
     z-index: 10;
     transition: background-color 0.3s ease;
   }
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.6);
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.6);
   }
   .prev {
     left: var(--spacing-lg);
@@ -143,7 +150,8 @@ const slides = [
     border: none;
     padding: 0;
   }
-  .dot.active, .dot:hover {
+  .dot.active,
+  .dot:hover {
     background-color: white;
   }
 
@@ -184,7 +192,8 @@ const slides = [
     .slide p {
       font-size: 1.2rem;
     }
-    .prev, .next {
+    .prev,
+    .next {
       padding: var(--spacing-xs);
     }
     .prev {
@@ -196,7 +205,10 @@ const slides = [
     .dots {
       bottom: var(--spacing-md);
     }
-    .featured-projects, .services, .stats, .testimonials {
+    .featured-projects,
+    .services,
+    .stats,
+    .testimonials {
       padding: var(--spacing-lg) 0;
     }
     h2 {
@@ -214,23 +226,30 @@ const slides = [
     .slide p {
       font-size: 1rem;
     }
-    .prev, .next {
+    .prev,
+    .next {
       display: none;
     }
     h2 {
       font-size: 1.75rem;
     }
   }
+
+  @media (max-width: 1024px) {
+    .slide {
+      min-width: 100%;
+    }
+  }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const slideshow = document.querySelector('.slideshow');
-    const slides = document.querySelectorAll('.slide');
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
-    const dotsContainer = document.querySelector('.dots');
-    const dots = document.querySelectorAll('.dot');
+  document.addEventListener("DOMContentLoaded", () => {
+    const slideshow = document.querySelector(".slideshow");
+    const slides = document.querySelectorAll(".slide");
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+    const dotsContainer = document.querySelector(".dots");
+    const dots = document.querySelectorAll(".dot");
 
     let currentIndex = 0;
     const totalSlides = slides.length;
@@ -242,12 +261,12 @@ const slides = [
       } else if (index >= totalSlides) {
         index = 0;
       }
-      
+
       slideshow.style.transform = `translateX(-${index * 100}%)`;
-      
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-      
+
+      dots.forEach((dot) => dot.classList.remove("active"));
+      dots[index].classList.add("active");
+
       currentIndex = index;
     }
 
@@ -262,19 +281,19 @@ const slides = [
       startSlideShow();
     }
 
-    prevButton.addEventListener('click', () => {
+    prevButton.addEventListener("click", () => {
       goToSlide(currentIndex - 1);
       resetSlideShow();
     });
 
-    nextButton.addEventListener('click', () => {
+    nextButton.addEventListener("click", () => {
       goToSlide(currentIndex + 1);
       resetSlideShow();
     });
 
-    dotsContainer.addEventListener('click', (e) => {
+    dotsContainer.addEventListener("click", (e) => {
       const target = e.target;
-      if (target.classList.contains('dot')) {
+      if (target.classList.contains("dot")) {
         const index = parseInt(target.dataset.index, 10);
         goToSlide(index);
         resetSlideShow();

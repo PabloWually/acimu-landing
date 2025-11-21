@@ -1,0 +1,192 @@
+---
+interface Props {
+    images: { url: string; caption: string }[];
+}
+
+const { images } = Astro.props;
+---
+
+<div id="lightbox-modal" class="modal">
+    <span class="close-button">&times;</span>
+    <div class="modal-content">
+        <img id="lightbox-image" src="" alt="" />
+        <p id="lightbox-caption"></p>
+    </div>
+    <button class="modal-nav prev">&lt;</button>
+    <button class="modal-nav next">&gt;</button>
+</div>
+
+<!-- Pass images to client-side script -->
+<div
+    id="modal-images-data"
+    data-images={JSON.stringify(images)}
+    style="display: none;"
+>
+</div>
+
+<script>
+    declare global {
+        interface Window {
+            openImageModal: (index: number) => void;
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById("lightbox-modal");
+        if (!modal) return;
+
+        const lightboxImage = document.getElementById(
+            "lightbox-image",
+        ) as HTMLImageElement;
+        const lightboxCaption = document.getElementById("lightbox-caption");
+        const closeButton = modal.querySelector(".close-button");
+        const modalNext = modal.querySelector(".modal-nav.next");
+        const modalPrev = modal.querySelector(".modal-nav.prev");
+
+        const imagesDataElement = document.getElementById("modal-images-data");
+        const images = JSON.parse(imagesDataElement?.dataset.images || "[]");
+
+        let currentImageIndex = 0;
+
+        // Expose openImageModal function globally so other components can use it
+        window.openImageModal = (_index) => {
+            if (images.length > 0) {
+                currentImageIndex = 0;
+                updateModalContent();
+                modal.style.display = "flex";
+                document.body.style.overflow = "hidden";
+            }
+        };
+
+        const closeModal = () => {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        };
+
+        const updateModalContent = () => {
+            if (images[currentImageIndex]) {
+                lightboxImage.src = images[currentImageIndex].url;
+                lightboxImage.alt = images[currentImageIndex].caption;
+                if (lightboxCaption) {
+                    lightboxCaption.textContent =
+                        images[currentImageIndex].caption;
+                }
+            }
+        };
+
+        const showNextImage = () => {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateModalContent();
+        };
+
+        const showPrevImage = () => {
+            currentImageIndex =
+                (currentImageIndex - 1 + images.length) % images.length;
+            updateModalContent();
+        };
+
+        closeButton?.addEventListener("click", closeModal);
+        modalNext?.addEventListener("click", showNextImage);
+        modalPrev?.addEventListener("click", showPrevImage);
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (modal.style.display === "flex") {
+                if (e.key === "ArrowRight") showNextImage();
+                if (e.key === "ArrowLeft") showPrevImage();
+                if (e.key === "Escape") closeModal();
+            }
+        });
+    });
+</script>
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.92);
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.3s;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        color: #fff;
+        font-size: 45px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.2s ease;
+    }
+    .close-button:hover {
+        color: #ccc;
+    }
+
+    .modal-content {
+        text-align: center;
+    }
+
+    #lightbox-image {
+        max-width: 90vw;
+        max-height: 85vh;
+        border-radius: 4px;
+    }
+
+    #lightbox-caption {
+        color: #ccc;
+        margin-top: 15px;
+        font-size: 1.1rem;
+    }
+
+    .modal-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(30, 30, 30, 0.5);
+        color: white;
+        border: 1px solid #555;
+        padding: 15px;
+        cursor: pointer;
+        font-size: 28px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s ease;
+    }
+
+    .modal-nav:hover {
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-nav.prev {
+        left: 25px;
+    }
+
+    .modal-nav.next {
+        right: 25px;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
